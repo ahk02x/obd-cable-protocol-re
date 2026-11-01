@@ -5,7 +5,7 @@ bug that made a million readings quietly wrong.*
 
 ---
 
-I drive a 2018 Audi SQ5 — B9, EA839 3.0T, Stage 2. Tuned cars get logged: you record
+I drive a 2025 Audi SQ5 — B9, EA839 3.0T, Stage 2. Tuned cars get logged: you record
 what the ECU is doing under load, and you look for the thing that's about to cost you
 an engine.
 
