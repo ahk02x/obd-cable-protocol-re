@@ -9,7 +9,7 @@ I drive a 2025 Audi SQ5 — B9, EA839 3.0T, Stage 2. Tuned cars get logged: you 
 what the ECU is doing under load, and you look for the thing that's about to cost you
 an engine.
 
-The tool I have for that is a Jackal cable. It plugs into the OBD port, talks to the
+The tool I have for that is the vendor's flash cable. It plugs into the OBD port, talks to the
 engine ECU, and streams back 54 channels of internal ECU state — not the dozen public
 OBD-II PIDs, but Bosch's own internal measurement variables: `nmot_w`,
 `IKCtl_agKnkInt_as8[0..5]`, `zwoutzyl_w_msg[..]`. Per-cylinder knock retard. Per-cylinder
@@ -38,11 +38,10 @@ dongle is request/response — it waits to be asked. So I couldn't just eavesdro
 stream; I'd have to learn the questions.
 
 Next I went looking for a shortcut and didn't find one, which was itself informative.
-The vendor app is a .NET MAUI desktop app from Automotive Data Technik AG. Its local
-app-data directories are **empty**. It carries an `ADT.DocumentFormat.Odx.dll` — ODX
-being ISO 22901, the standard format for diagnostic definitions — but no ODX files on
-disk. Conclusion: the label-to-address map isn't cached locally, it's pulled from
-their backend at runtime.
+The vendor app is a .NET MAUI desktop app. Its local app-data directories are
+**empty**. It ships an ODX document-format library — ODX being ISO 22901, the standard
+format for diagnostic definitions — but no ODX files on disk. Conclusion: the
+label-to-address map isn't cached locally, it's pulled from their backend at runtime.
 
 There was no map to lift. Which meant correlation was not the lazy path, it was the
 only path.
